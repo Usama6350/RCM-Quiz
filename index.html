@@ -37,7 +37,7 @@ button:disabled { background: #333; cursor: not-allowed; color: #777; }
 </head>
 <body>
 <header>
-<strong>Prepared by Usama Khan</strong> | <strong>Revenue Cycle Management Quiz  </strong> – <strong>A New Initiative Towards Better Learning</strong><br>
+<strong>Revenue Cycle Management Quiz</strong> – <strong>A New Initiative Towards Better Learning</strong> | <strong>Prepared by: Usama Khan - RCM Specialist</strong><br>
 </header>
 
 <div class="container">
@@ -75,11 +75,11 @@ button:disabled { background: #333; cursor: not-allowed; color: #777; }
 <!-- QUIZ PAGE -->
 <div id="quizSection" class="hidden">
 <div class="stats">
-Correct: <span id="correctCount">0</span> |
-Wrong: <span id="wrongCount">0</span> |
-Skipped: <span id="skippedCount">0</span> |
-Timer: <span id="timer">30</span>s |
-Attempted: <span id="attemptedCount">0</span>/<span id="totalCount">0</span>
+✅Correct: <span id="correctCount">0</span> |
+❌Wrong: <span id="wrongCount">0</span> |
+⏭️Skipped: <span id="skippedCount">0</span> |
+⏱Timer: <span id="timer">30</span>s |
+📊Attempted: <span id="attemptedCount">0</span>/<span id="totalCount">0</span>
 </div>
 <div class="progress-bar">
 <div id="progressFill" class="progress-fill"></div>
@@ -425,7 +425,6 @@ const allQuestions = [
 {diff:"Easy", question:"Why do providers use clearinghouses?", options:["To validate claims and reduce rejections before sending to insurers","To store medical records","To schedule appointments","To bill patients directly"], answer:0},
 {diff:"Easy", question:"Why is outsourcing billing helpful for small practices?", options:["Access to expert staff without hiring full-time","Reduces patient visits","Eliminates coding","Removes need for clearinghouse"], answer:0},
 {diff:"Easy", question:"You receive an ERA with missing patient identifiers. What is the correct next step?", options:["Research remittance details to match correct patient before posting","Post under suspense account without review","Apply payment randomly to open balances","Reject and discard ERA"], answer:0},
-{diff:"Easy", question:"Were you lucky enough to Receive this?", options:["Absolutely Yes!","I didn't received this!","Did I Received This?","Not Sure!"], answer:0},
 {diff:"Medium", question:"A billing clerk notices that a claim was denied because the patient’s insurance was not active on the date of service. What is this issue?", options:["Coverage eligibility issue preventing payment","Duplicate claim submission","NCCI edit applied incorrectly","Pre-authorization missing"], answer:0},
 {diff:"Medium", question:"A billing clerk notices that two similar services are denied because they cannot be billed together. What rule applies?", options:["NCCI Procedure-to-Procedure edit preventing unbundling","MUE edit limiting daily services","CMS-1500 form filled incorrectly","Coordination of benefits applied"], answer:0},
 {diff:"Medium", question:"A claim denied because 'incorrect payer billed.' Correct step?", options:["Verify active coverage and resubmit to correct payer","Appeal current payer","Change provider info","Write off claim"], answer:0},
@@ -557,7 +556,7 @@ const allQuestions = [
 {diff:"Medium", question:"What is a revenue code?", options:["Code indicating the type of service or department in institutional billing","Diagnosis code","Procedure code","Insurance plan code"], answer:0},
 {diff:"Medium", question:"What is a TPL in Medicaid?", options:["Third Party Liability","Timely Payment Limit","Tax Paid Ledger","Treatment Plan List"], answer:0},
 {diff:"Medium", question:"What is an RA in payment posting?", options:["Remittance Advice","Refund Adjustment","Revenue Authorization","Return Amount"], answer:0},
-{diff:"Medium", question:"What is an unbundling error?", options:["Billing components of a bundled service separately","Billing components of a bundled service together","Billing components of a Lab service separately","Submitting Duplicate Claims on the Same DOS"], answer:0},
+{diff:"Medium", question:"What is an unbundling error?", options:["Billing components of a bundled service separately","Posting payment twice","Incorrect patient demographic","Submitting claims late"], answer:0},
 {diff:"Medium", question:"What is bundling in claims processing?", options:["Combining services into one payment per NCCI edits","Billing multiple insurances together","Merging patient statements","Payer grouping members"], answer:0},
 {diff:"Medium", question:"What is claim reconciliation?", options:["Comparing billed charges to payments received","Posting payments","Eligibility verification","Coding audit"], answer:0},
 {diff:"Medium", question:"What is coordination of benefits (COB)?", options:["Process of determining primary vs secondary payer","Collecting copay before visit","Provider calling insurance for auth","Bundling multiple CPTs"], answer:0},
@@ -746,7 +745,6 @@ const allQuestions = [
 {diff:"Medium", question:"Which type of plan typically has the lowest monthly premiums but most restrictions?", options:["HMO","PPO","POS","EPO"], answer:0},
 {diff:"Medium", question:"Why might a group practice receive denials even if the individual provider is credentialed?", options:["The group/facility itself is not enrolled with Medicaid","Claims are submitted electronically instead of paper","Medicaid does not allow billing under group NPI","The CPT code requires modifier"], answer:0},
 {diff:"Medium", question:"Why would a Medicaid claim deny as 'provider not enrolled'?", options:["The provider is not credentialed with Medicaid for that state","The claim was submitted too early in the month","The CPT code was not on the fee schedule","The patient has commercial insurance active"], answer:0},
-{diff:"Medium", question:"Were you lucky enough to Receive this?", options:["Absolutely Yes!","I didn't received this!","Did I Received This?","Not Sure!"], answer:0},
 {diff:"Hard", question:"A billing clerk notices that several outpatient claims were denied because the patient’s insurance was inactive. What action should be taken?", options:["Verify coverage eligibility before submitting claims and appeal if appropriate","Submit claims again regardless of coverage","Change CPT codes to match another service","Use a different claim form type"], answer:0},
 {diff:"Hard", question:"A billing specialist notices that the same service is billed multiple times across different patients, triggering a potential audit. What type of fraud risk is this?", options:["Upcoding or duplicate billing flagged under compliance audits","Medically Unlikely Edit violation","Pre-authorization missing issue","Place of service mismatch"], answer:0},
 {diff:"Hard", question:"A claim denied because provider taxonomy code did not match billed CPT (e.g., psychologist billing lab). Correct fix?", options:["Correct taxonomy in provider enrollment or bill under correct rendering provider","Resubmit with modifier -59","Appeal with medical necessity","Submit under different payer"], answer:0},
@@ -793,7 +791,7 @@ const allQuestions = [
 {diff:"Hard", question:"BCBS denied surgery as 'global period conflict' and 'missing operative notes.' Which action is correct?", options:["Attach operative report, correct modifier (e.g. -79), and appeal","Resubmit claim without modifiers","Submit claim as unrelated outpatient visit","Appeal without operative notes"], answer:0},
 {diff:"Hard", question:"BCBS denied two procedures same session as 'bundled.' Which modifier should be used if both procedures are distinct and medically necessary?", options:["Append modifier -59 or X-modifier (e.g., -XE) to unbundle","Use modifier -25 on procedure","Bill both with modifier -91","Submit as two separate claims without modifiers"], answer:0},
 {diff:"Hard", question:"Box 29 (Amount Paid) should only be filled when?", options:["A payment has already been collected from patient or secondary","The claim is first submission to Medicare","Provider is out-of-network","Modifier is attached to CPT"], answer:0},
-{diff:"Hard", question:"Box 33b can only be used when?", options:["Qualifier other than NPI is required","Secondary payer requires COB","Provider has multiple EINs","Prior authorization is pending"], answer:0},
+{diff:"Hard", question:"Box 33b can only be used when?", options:["Qualifier other than NPI is required (legacy ID, taxonomy)","Secondary payer requires COB","Provider has multiple EINs","Prior authorization is pending"], answer:0},
 {diff:"Hard", question:"Cigna denied ER visit as 'non-emergent.' What’s the best appeal strategy?", options:["Submit clinical records demonstrating prudent layperson standard","Change POS to urgent care","Resubmit as inpatient stay","Write off"], answer:0},
 {diff:"Hard", question:"Cigna denied for 'experimental/investigational procedure.' What must AR staff provide in appeal?", options:["Medical policy exceptions, clinical studies, and physician letter of medical necessity","A new CPT code that seems payable","Submit under another provider","Proof of timely filing"], answer:0},
 {diff:"Hard", question:"Cigna denied lab panel because individual codes were billed instead of the correct panel CPT. Correct approach?", options:["Bill the comprehensive panel CPT code instead of each test","Resubmit with modifier -91","Use modifier -59","Bill tests separately again"], answer:0},
@@ -1066,8 +1064,7 @@ const allQuestions = [
 {diff:"Hard", question:"Which type of appeal is submitted after initial claim denial?", options:["Reconsideration or first-level appeal","Internal quality review only","Provider peer review","Pre-authorization request"], answer:0},
 {diff:"Hard", question:"Which type of audit focuses on evaluating accuracy of submitted CPT and ICD-10 codes?", options:["Coding audit","Financial audit","Operational audit","Patient safety audit"], answer:0},
 {diff:"Hard", question:"Which type of audit reviews medical necessity, coding, and billing accuracy after payment?", options:["Post-payment audit","Pre-billing audit","Inventory audit","Credentialing audit"], answer:0},
-{diff:"Hard", question:"Which type of documentation is required for hospital inpatient review audits?", options:["History & physical, operative notes, nursing notes, discharge summary","Front desk sign-in","Patient satisfaction survey","Insurance policy brochure"], answer:0},
-{diff:"Hard", question:"Were you lucky enough to Receive this?", options:["Absolutely Yes!","I didn't received this!","Did I Received This?","Not Sure!"], answer:0}
+{diff:"Hard", question:"Which type of documentation is required for hospital inpatient review audits?", options:["History & physical, operative notes, nursing notes, discharge summary","Front desk sign-in","Patient satisfaction survey","Insurance policy brochure"], answer:0}
 ];
 // ==================== VARIABLES ====================
 let quiz = [];
@@ -1087,6 +1084,9 @@ return arr;
 }
 
 function startQuiz() {
+
+document.getElementById('progressFill').style.width = '0%';
+
   userInfo.name = document.getElementById('userName').value.trim();
   userInfo.company = document.getElementById('companyName').value.trim();
   userInfo.difficulty = document.getElementById('difficulty').value;
@@ -1285,7 +1285,10 @@ function showResult() {
   <div style="font-family:'Inter','Segoe UI',sans-serif; background:#121212; border:1px solid #2a2a2a; border-radius:16px; padding:10px; max-width:700px; margin:6vh auto; box-shadow:0 0 20px rgba(0,255,255,0.1); line-height:1.7; font-size:16px; color:#e4e4e4;">
     <h2 style="color:#9efeff; font-size:1.8rem; margin-bottom:16px; text-align:center;">🎓 Revenue Cycle Management Quiz Results</h2>
     <p style="text-align:center;">Thank you for participating, <strong style="color:#00ffcc;">${name}</strong> from <strong style="color:#ffcc00;">${company}</strong>.</p>
-    <p style="text-align:center;">You scored <strong style="color:#00ff99;">${correct}/${total}</strong> (<span style="color:#9efeff;">${score}%</span>).</p>
+    <p style="text-align:center;">
+    You scored <strong style="color:#00ff99;">${correct}/${total}</strong> 
+    (<span style="color:#9efeff;">${score}%</span>) 
+    on <strong style="color:#ffd700;">${userInfo.difficulty}</strong> difficulty.</p>
     <p style="text-align:center;">Rank: <strong style="color:#ff5722;">${grade}</strong></p>
     <p style="font-style:italic; text-align:center; color:#ccc;">${feedback}</p>
     <hr style="border:0; border-top:1px solid #444; margin:24px 0;">
@@ -1309,7 +1312,22 @@ function getSkipNote(skipped) {
 if (skipped === 0) return "";
 
 const messages = [
-`Skipped ${skipped} question${skipped > 1 ? 's' : ''}? Were they shy, or did you ghost them like unread emails? 👻`,
+`Skipped ${skipped}? Sometimes the wisest path is the one not taken. 🌿`,
+`You skipped ${skipped} question${skipped > 1 ? 's' : ''}. Stillness is part of the journey. 🧘‍♀️`,
+`${skipped} question${skipped > 1 ? 's' : ''} skipped. Let go of judgment—clarity will come. 🌙`,
+`Skipped ${skipped}? The mind wanders, and that’s okay. 🍃`,
+`You skipped ${skipped}. In silence, answers often bloom. 🌸`,
+`Skipped ${skipped}? A pause is not a failure—it’s a breath. 🌬️`,
+`${skipped} question${skipped > 1 ? 's' : ''} skipped. The path unfolds in its own time. 🛤️`,
+`Skipped ${skipped}? Even the moon has phases. 🌕`,
+`You skipped ${skipped}. Wisdom isn’t rushed. 🕊️`,
+`${skipped} skipped—like clouds drifting past thought. ☁️`,
+`Skipped ${skipped}? The present moment is enough. ⛱`,
+`You skipped ${skipped}. Awareness begins with noticing. 👁️`,
+`${skipped} question${skipped > 1 ? 's' : ''} skipped. The journey continues with grace. 🧭`,
+`Skipped ${skipped}? Still waters run deep. 💧`,
+`You skipped ${skipped}. The quiz honors your pace. ⚡`,
+`Skipped ${skipped}? Were they shy, or did you ghost them like unread emails? 👻`,
 `Oops! You skipped ${skipped} question${skipped > 1 ? 's' : ''}. Maybe they were too tricky? 🤔`,
 `Notice: ${skipped} question${skipped > 1 ? 's' : ''} left behind. Courage is for next time! 💪`,
 `${skipped} question${skipped > 1 ? 's' : ''} skipped – the quiz will forgive you… barely! 😅`,
@@ -1324,11 +1342,26 @@ const messages = [
 `You bravely skipped ${skipped} question${skipped > 1 ? 's' : ''}. Bold move! ⚡`,
 `Oopsie! ${skipped} question${skipped > 1 ? 's' : ''} skipped. Don’t worry, your secrets are safe! 🤫`,
 `Skipped ${skipped} question${skipped > 1 ? 's' : ''} – are you training for speed reading next? 📖`,
-`Skipped ${skipped} question${skipped > 1 ? 's' : ''}... just like your hopes and dreams. (●'◡'●)`,
-`You ghosted ${skipped} question${skipped > 1 ? 's' : ''}. Don’t worry, they’ll haunt you tonight. 👻`,
-`${skipped} skipped… kind of like how your brain skipped development in some areas. 🧟`,
+`Skipped ${skipped}? Plot twist! The quiz is now a mystery novel. 📚`,
+`Skipped ${skipped}? Your curiosity took a nap. 💤`,
+`You skipped ${skipped}. The quiz still believes in you. 💖`,
+`Skipped ${skipped}? That’s just strategic silence. 🧘‍♂️`,
 `Skipped ${skipped}? Bold choice. Denial is the first stage of failure. ⚰️`,
-`${skipped} question${skipped > 1 ? 's' : ''} skipped — the Quiz Lords are disappointed, and they demand an Exercise.🧹`,
+`${skipped} question${skipped > 1 ? 's' : ''} skipped… like your gym membership: paid for, never used. 🏋️‍♂️`,
+`You skipped ${skipped}. That’s one way to keep your score as empty as your fridge. 🧊`,
+`Skipped ${skipped}? Your brain clearly called in sick. 🧠💤`,
+`${skipped} skipped—like your dreams after high school. 🎓💨`,
+`Skipped ${skipped}? Even your shadow would’ve tried harder. 🕶️`,
+`You ghosted ${skipped} question${skipped > 1 ? 's' : ''}. They’ll haunt your GPA tonight. 👻`,
+`${skipped} question${skipped > 1 ? 's' : ''} skipped. The quiz is filing abandonment papers. 📄`,
+`Skipped ${skipped}? That’s not strategy, that’s surrender with style. 🏳️`,
+`Whoa! ${skipped} skipped—your brain just rage-quit. 🎮🧠`,
+`Skipped ${skipped}? You treat quizzes like unread terms & conditions. 📜❌`,
+`${skipped} skipped… kind of like how your brain skipped development in some areas. 🧟`,
+`Skipped ${skipped}? Your confidence is writing checks your memory can’t cash. 💸`,
+`You skipped ${skipped}. That’s one way to keep suspense alive… or just avoid thinking. 🎭`,
+`${skipped} question${skipped > 1 ? 's' : ''} skipped — the Quiz Lords are disappointed, and they demand an Exercise. 🧹`,
+`Skipped ${skipped}? Your intellect just went on airplane mode. ✈️📴`,
 ];
 
 const randomMessage = messages[Math.floor(Math.random() * messages.length)];
@@ -1351,7 +1384,6 @@ document.getElementById('skippedCount').textContent='0';
 document.getElementById('attemptedCount').textContent='0';
 }
 </script>
-</script> <!-- your quiz script ends here -->
 
 <script>
 // Disable right-click context menu
